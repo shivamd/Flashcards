@@ -5,15 +5,11 @@
   <h1>The answer is <%= @answer %>.</h1>
 </div>
 
-<% 
-    
- %>
- <form action="/deck/cards/<%= session[:cards].pop %>" method="get">
+ <form action="/round/<%= @round.id%>/deck/<%= @deck.id %>/cards/<%= session[:cards].pop %>" method="get">
 
   <input type="submit" value="Next">
 </form>
-
-<a href="/results/">End Game</a>
+<a href="/results/<%= @round.id %>">End Game</a>
 
 <% if false %>
 <form action="/game/1/done" method="get">

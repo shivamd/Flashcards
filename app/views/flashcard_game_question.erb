@@ -3,7 +3,7 @@
   <h6><%= @card.answer %></h6>
 </div>
 
-<form action="/deck/cards/<%= @card.id %>/guess" method="post">
+<form action="/round/<%= @round.id %>/deck/<%= @deck.id%>/cards/<%= @card.id %>/guess" method="post">
   <input type="text" name="submit_guess">
   <input type="submit" value="Guess">
 </form>

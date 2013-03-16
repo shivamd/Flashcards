@@ -4,16 +4,21 @@
   <tr>
     <th>Num</th>
     <th>Deck</th>
-    <th>Points</th>
-    <th>Total</th>
+    <th>Deck Length</th>
+    <th>Correct</th>
+    <th>Incorrect</th>
+    <th>% correct</th>
   </tr>
   <tr>
     <td>8</td>
     <td>States</td>
-    <td>100</td>
-    <td>500</td>
+    <td><%= @round.deck.cards.length %>
+    <td><%= @round_stats.select { |x| x.correct}.count %></td>
+    <td><%= @round_stats.select { |x| !x.correct}.count %></td>
+    <td><%= "%.2f" % (((@round_stats.select { |x| !x.correct}.count.to_f) / (@round_stats.length) ) * 100)  %></td>
   </tr>
   
 </table>
 <a href="/users">Back to main page</a>
 </div>
+

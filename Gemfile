@@ -12,7 +12,8 @@ gem 'thin'
 
 gem 'activesupport'
 gem 'activerecord'
-gem 'rack-webconsole'
+gem "pry"
+gem "pry-remote"
 
 gem 'rake'
 

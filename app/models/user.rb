@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   VALID_EMAIL_REGEX = /^[a-z0-9][a-z0-9_\.-]{0,}[a-z0-9]@[a-z0-9][a-z0-9_\.-]{0,}[a-z0-9][\.][a-z0-9]{2,4}$/
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
-  validates :entered_password, length: { minimum: 6 }
+  # validates :entered_password, length: { minimum: 6 }
  
    include BCrypt
 
