@@ -1,5 +1,7 @@
-post '/round' do
-  session[:round] = Deck.find(params[:deck_id])
+post '/rounds' do
+  params.inspect
+
+  session[:round] = Deck.find_by_name(params[:deck])
   #params.inspect { deck => 1 }
   #current_user.rounds.create
 
@@ -8,7 +10,7 @@ post '/round' do
 end
 
 get '/deck/:deck_id/card/:card_id/' do
-  
+
   #erb :flashcard_game_question
 end 
 

@@ -1,7 +1,3 @@
-
-<!-- replace User with instance -->
-<h1>Welcome <%= current_user.name %>! </h1>
-
 <table class="stats-list">
 
   <tr>
@@ -11,14 +7,6 @@
     <th>Total</th>
   </tr>
 
-  <% @round.each do |round| %>
-  <tr>
-    <td><%= round.id %></td>
-    <td><%= round.deck %></td>
-    <td><%= round.guesses %></td>
-    <td><%= round.deck.length %></td>
-  </tr>
-  <%end%>
 
   <tr>
     <td>8</td>
@@ -72,11 +60,9 @@
 </table>
 
 
-<form class="deck-dropdown"action="/game/1/question/1" method="get">
+<form class="deck-dropdown"action="/rounds" method="post">
   <select name="deck">
-    <% @deck.each do |deck|
-    <option name="deck" value="<% @deck.id %>"> <%= @deck.name %> </option>
-    <% end %>
+   
 
     <option name="deck" value="states">States</option>
     <option name="deck" value="states">Countries</option>

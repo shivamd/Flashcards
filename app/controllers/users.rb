@@ -19,11 +19,6 @@ post '/users/new' do
 end
 
 get '/users' do
-  
-  #  redirect '/'
-  #end
-  # @user = session[:current_user]
-  @decks = Deck.all
   erb :user
 end
 
