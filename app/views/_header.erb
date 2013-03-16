@@ -1,0 +1,13 @@
+<div class="login">
+  <% unless current_user %>
+  <ul>
+      <li><a href="/users/new">Signup</a></li>
+      <li><a href="/users/login">Login</a></li>
+    </ul>
+   <% else %> 
+    <form action="/users/logout" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="logout">
+    </form>
+  <% end %>
+</div>

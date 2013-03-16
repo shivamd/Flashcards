@@ -1,0 +1,62 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #ccc;
+}
+.logo {
+  
+}
+.container {
+  margin: 0px auto;
+  width: 960px;
+  position: relative;
+}
+.login {
+  position: absolute;
+  right: 0;
+  top: 0px;
+}
+.login ul {
+  display: inline-block;
+}
+.login ul li {
+  display: inherit;
+}
+.content-area {
+  border: 1px solid #eee;
+  min-height: 500px;
+  padding: 40px;
+
+}
+.form-style {
+  min-width: 350px;
+  max-width: 450px;
+  margin: 40px auto 0 auto;
+  text-align: right;
+}
+.form-style ul li {
+  margin: 10px 0;
+  list-style: none;
+  
+}
+.deck-dropdown {
+  display: inline-block;
+  border: 1px solid black;
+  padding: 20px;
+  margin-top: 30px;
+}
+.stats-list tr{
+  border-bottom: 1px solid black;
+
+}
+.stats-list tr:last-child {
+  border-bottom: none;
+}
+.stats-list td {
+  padding: 10px 20px;
+}
+.stats-list {
+  border-spacing:0;
+  border-collapse:collapse;
+  border: 1px solid black;
+
+}

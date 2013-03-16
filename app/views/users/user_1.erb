@@ -1,0 +1,22 @@
+ <div>
+  <h2>Welcome, <%= current_user.name %> to Flashcards!
+</div>
+
+<form name='decks' method='post' action='/round'>
+  <select>
+    <% @decks.each do |deck| %>
+    <option><%= deck.name %></option>
+    <%end%>
+  </select>
+  <input type='submit' value='Start Game'>
+</form>
+
+<h3>Prior Round Stats</h3>
+
+<div>
+  <% @rounds.each do |round| %>
+  <ul>
+    <li><a href='/rounds/<%= round.id %>'><%= @round.deck.name %></a> -- <%= @round.created_at %><li>
+  </ul>
+  <%end%>
+</div>

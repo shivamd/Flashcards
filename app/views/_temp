@@ -1,0 +1,89 @@
+
+<!-- replace User with instance -->
+<h1>Welcome <%= current_user.name %>! </h1>
+
+<table class="stats-list">
+
+  <tr>
+    <th>Num</th>
+    <th>Deck</th>
+    <th>Points</th>
+    <th>Total</th>
+  </tr>
+
+  <% @round.each do |round| %>
+  <tr>
+    <td><%= round.id %></td>
+    <td><%= round.deck %></td>
+    <td><%= round.guesses %></td>
+    <td><%= round.deck.length %></td>
+  </tr>
+  <%end%>
+
+  <tr>
+    <td>8</td>
+    <td>States</td>
+    <td>100</td>
+    <td>500</td>
+  </tr>
+
+  <tr>
+    <td>7</td>
+    <td>States</td>
+    <td>100</td>
+    <td>500</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>States</td>
+    <td>100</td>
+    <td>500</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>States</td>
+    <td>100</td>
+    <td>500</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>States</td>
+    <td>100</td>
+    <td>500</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>States</td>
+    <td>100</td>
+    <td>500</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>States</td>
+    <td>100</td>
+    <td>500</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>States</td>
+    <td>100</td>
+    <td>500</td>
+  </tr>
+</table>
+
+
+<form class="deck-dropdown"action="/game/1/question/1" method="get">
+  <select name="deck">
+    <% @deck.each do |deck|
+    <option name="deck" value="<% @deck.id %>"> <%= @deck.name %> </option>
+    <% end %>
+
+    <option name="deck" value="states">States</option>
+    <option name="deck" value="states">Countries</option>
+    <option name="deck" value="states">Cities</option>
+    <option name="deck" value="states">Counties</option>
+    <option name="deck" value="states">Regions</option>
+    <option name="deck" value="Parks">Parks</option>
+  </select>
+  <input type="submit" value="PLAY">
+</form>
