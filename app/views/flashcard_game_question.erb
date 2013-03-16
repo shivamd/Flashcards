@@ -1,10 +1,9 @@
-
-
 <div class="question">
-  <h1>What is your name noob?</h1>
+  <h1><%= @card.question %></h1>
+  <h6><%= @card.answer %></h6>
 </div>
 
-<form action="/game/1/question/1/guess" method="get">
+<form action="/deck/cards/<%= @card.id %>/guess" method="post">
   <input type="text" name="submit_guess">
   <input type="submit" value="Guess">
 </form>

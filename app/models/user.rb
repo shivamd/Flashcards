@@ -1,6 +1,7 @@
-class User < ActiveRecord::Base
 
+class User < ActiveRecord::Base
   has_many :rounds
+  
 
 	attr_reader :entered_password
 
@@ -26,5 +27,4 @@ class User < ActiveRecord::Base
       user = User.find_by_email(email)
       user && (Password.new(user.password_hash) == password)
     end
-
 end
