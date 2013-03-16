@@ -1,13 +1,18 @@
+<div class="form-style">
 <%= @error if @error %>
+<h2>Login</h2>
+<ul>
 
-<form action="/sessions" method="post">
-	<fieldset>
-		<legend>Login</legend>
-	<label for="email">Email:</label>
-	<input type="email" name="email" placeholder="me@example.com">
-	<label for="password">Password:</label>
-	<input type="password" name="password">
+<form action="/users/login" method="post">
 
-	<input type="submit" value="login">
-	</fieldset>
+		
+	<li><label for="email">Email:</label>
+	<input type="email" name="email" placeholder="me@example.com"></li>
+	<li><label for="password">Password:</label>
+	<input type="password" name="password"></li>
+
+	<li><input type="submit" value="login"></li>
+	
 </form>
+</ul>
+</div>
