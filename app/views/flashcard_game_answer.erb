@@ -4,16 +4,11 @@
   <h2>Your answer <%= @user_guess %></h2>
   <h1>The answer is <%= @answer %>.</h1>
 </div>
-
+<% if session[:cards].empty? %>
+  <p>Congrats on completing <%= @deck.name %></p>
+<% else %>
  <form action="/round/<%= @round.id%>/deck/<%= @deck.id %>/cards/<%= session[:cards].pop %>" method="get">
-
   <input type="submit" value="Next">
 </form>
-<a href="/results/<%= @round.id %>">End Game</a>
-
-<% if false %>
-<form action="/game/1/done" method="get">
-
-  <input type="submit" value="I Quit Cuz I suck">
-</form>
 <% end %>
+<a href="/results/<%= @round.id %>">End Game</a>

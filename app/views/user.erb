@@ -1,75 +1,49 @@
-<table class="stats-list">
+<div class="container">
+  <section class="editorWrap">
+    <h1 class="animate dropIn">FlashCards</h1>
+    <div class="editor animate fadeIn">
+      <div class="menu"></div><!-- end .menu -->
+      <div class="code">
+        <textarea class="text">Flashcards</textarea>
+      </div>
+    </div>
+  </section>  
+  <p>&nbsp;</p> 
+</div>
 
+<table class="stats-list">
+<% if current_user.rounds.any? %>
+<caption><h2><%= current_user.name.capitalize.possessive %> games</h2></caption>
   <tr>
     <th>Num</th>
     <th>Deck</th>
-    <th>Points</th>
-    <th>Total</th>
+    <th>Correct</th>
+    <th>Time</th>
   </tr>
 
 
+<% current_user.rounds.each do |round| %>
+  <% stats = round_stats(round.id) %>
   <tr>
-    <td>8</td>
-    <td>States</td>
-    <td>100</td>
-    <td>500</td>
+    <td><a href="/results/<%= round.id %>"><%= current_user.rounds.index(round) + 1 %></a></td>
+    <td><%= round.deck.name %></td>
+    <td><%= percentage_correct(stats) %>%</td>
+    <td><%= (round.created_at).ago_in_words %></td>
   </tr>
-
-  <tr>
-    <td>7</td>
-    <td>States</td>
-    <td>100</td>
-    <td>500</td>
-  </tr>
-  <tr>
-    <td>6</td>
-    <td>States</td>
-    <td>100</td>
-    <td>500</td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td>States</td>
-    <td>100</td>
-    <td>500</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>States</td>
-    <td>100</td>
-    <td>500</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>States</td>
-    <td>100</td>
-    <td>500</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>States</td>
-    <td>100</td>
-    <td>500</td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>States</td>
-    <td>100</td>
-    <td>500</td>
-  </tr>
+<% end %>
+<% end %>
 </table>
 
 
+<h2>PICK A DECK!</h2>
 <form class="deck-dropdown"action="/rounds" method="post">
   <select name="deck">
-   
-
-    <option name="deck" value="Jeopardy">States</option>
-    <option name="deck" value="states">Countries</option>
-    <option name="deck" value="states">Cities</option>
-    <option name="deck" value="states">Counties</option>
-    <option name="deck" value="states">Regions</option>
-    <option name="deck" value="Parks">Parks</option>
+    <option name="deck" value="Jeopardy">Jeopardy</option>
+    <option name="deck" value="test">test</option>
   </select>
   <input type="submit" value="PLAY">
 </form>
+
+
+
+

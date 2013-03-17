@@ -1,24 +1,28 @@
 <div class="landing-page-stats">
-<h1>Current Game</h1>
+<% if current_user.rounds.last == @round %>
+  <h1>Last Game</h1>
+<% else %>
+  <h1> Round No.<%= current_user.rounds.index(@round) + 1 %></h1> 
+  <% end %>
+
 <table class="stats-list">
   <tr>
-    <th>Num</th>
     <th>Deck</th>
-    <th>Deck Length</th>
+    <th>Total</th>
     <th>Correct</th>
     <th>Incorrect</th>
     <th>% correct</th>
   </tr>
   <tr>
-    <td>8</td>
-    <td>States</td>
+    <td><%= @round.deck.name %></td>
     <td><%= @round.deck.cards.length %>
-    <td><%= @round_stats.select { |x| x.correct}.count %></td>
-    <td><%= @round_stats.select { |x| !x.correct}.count %></td>
-    <td><%= "%.2f" % (((@round_stats.select { |x| !x.correct}.count.to_f) / (@round_stats.length) ) * 100)  %></td>
+    <td><%= correct(@round_stats) %></td>
+    <td><%= wrong(@round_stats) %></td>
+    <td> <%= percentage_correct(@round_stats)  %></td>
   </tr>
   
 </table>
 <a href="/users">Back to main page</a>
 </div>
+
 

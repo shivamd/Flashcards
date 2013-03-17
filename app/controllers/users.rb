@@ -1,3 +1,8 @@
+get '/' do
+  current_user ? redirect('/users') : (erb :index)
+end
+
+
 get '/users/new' do
   @user = User.new
   erb :"users/new"
@@ -9,12 +14,10 @@ post '/users/new' do
   								 email: params[:email], 
   								 password: params[:password])
   unless @user.save 
-  	puts @user.errors.any?
-  	puts @user.errors.full_messages
   	erb :"users/new"
   else
-    current_user
-  	redirect '/users'
+    login(@user)
+    redirect('/users')
   end
 end
 
@@ -29,12 +32,8 @@ end
 
 post '/users/login' do 
   if User.authenticate(params[:email], params[:password])
-    token = SecureRandom.hex(10)
-    session[:token] = token
     user = User.find_by_email(params[:email])
-    user.token = token
-    user.save 
-    current_user
+    login(user)
     redirect ('/users')
   else
     @error = "Invalid Email/Password combination."

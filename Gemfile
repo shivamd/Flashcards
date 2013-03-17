@@ -23,3 +23,5 @@ group :test do
 end
 
 gem 'bcrypt-ruby'
+gem 'time-ago-in-words'
+gem 'possessive'

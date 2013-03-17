@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-  -->
+ 
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="/css/normalize.css" type="text/css">
   <link rel="stylesheet" href="/css/application.css" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/css/primary.css">
   <title>Flashcards</title>
 </head>
 <body>
-  <div class="container">
-    <div class="logo"><h1>Logo</h1></div>
+  <%= erb :_header, layout => false %>
+  <div >
     
-    <%= erb :_header, layout => false %> 
+     
     <div class="content-area">
     <%= yield %>
   </div>
   </div>
   
-   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </body>
 </html>
