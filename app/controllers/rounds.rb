@@ -1,7 +1,18 @@
-post '/rounds' do
-  session[:cards] = []
-  current_deck = Deck.find_by_name(params[:deck])
+get '/rounds/new/?' do
+  @decks = Deck.all
+  @message = params[:message]
+  erb :new_round
+end
 
+post '/rounds' do
+  
+  current_deck = Deck.find_by_name(params[:deck].downcase)
+
+  if current_deck.nil?
+
+    redirect "/rounds/new/?message=Invalid Deck"
+  end
+  session[:cards] = []
   current_deck.cards.each do |card|
     session[:cards] << card.id
   end
@@ -10,6 +21,7 @@ post '/rounds' do
 end
 
 get '/round/:round_id/deck/:deck_id/cards/:card_id' do
+
   @deck = Deck.find(params[:deck_id])
   @round = Round.find(params[:round_id])
   @card = Card.find_by_id(params[:card_id])

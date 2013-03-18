@@ -1,16 +1,3 @@
-<div class="container">
-  <section class="editorWrap">
-    <h1 class="animate dropIn">FlashCards</h1>
-    <div class="editor animate fadeIn">
-      <div class="menu"></div><!-- end .menu -->
-      <div class="code">
-        <textarea class="text">Flashcards</textarea>
-      </div>
-    </div>
-  </section>  
-  <p>&nbsp;</p> 
-</div>
-
 <table class="stats-list">
 <% if current_user.rounds.any? %>
 <caption><h2><%= current_user.name.capitalize.possessive %> games</h2></caption>
@@ -33,17 +20,6 @@
 <% end %>
 <% end %>
 </table>
-
-
-<h2>PICK A DECK!</h2>
-<form class="deck-dropdown"action="/rounds" method="post">
-  <select name="deck">
-    <option name="deck" value="Jeopardy">Jeopardy</option>
-    <option name="deck" value="test">test</option>
-  </select>
-  <input type="submit" value="PLAY">
-</form>
-
 
 
 

@@ -1,0 +1,22 @@
+  <section class="editorWrap">
+
+    <div class="editor"><!--  animate fadeIn -->
+      <div class="menu"></div><!-- end .menu -->
+      <div class="code">
+          <form class="deck-dropdown" action="/rounds" method="post">
+            <p>Available decks</p>
+            <p>===================================================</p>
+            <% @decks.each do |deck| %>
+              <p>$ >> <%= deck.name.capitalize %></p>
+            <% end %>
+            <p>Type a deck and press ENTER</p>
+            <% if @message %>
+            <p><%= @message %>, Please try again.</p>
+            <% end %>
+            <input type="text" name="deck" class="start-location"/>   
+            <input type="submit" value="go" style="display: none;" >
+          </form>
+      </div>
+    </div>
+  </section>  
+  <p>&nbsp;</p> 

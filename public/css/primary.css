@@ -9,6 +9,8 @@
  * Corrects block display not defined in IE6/7/8/9 & FF3
  */
 
+ 
+
 article,
 aside,
 details,
@@ -508,7 +510,7 @@ table {
 html {
   font-smoothing: always !important;
   -webkit-font-smoothing: antialiased !important;
-  background: url('https://s3.amazonaws.com/imjakechapman/demos/texteditor/bg.jpg') #1882b4 no-repeat 0 0;
+  
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -ms-background-size: cover;
@@ -518,6 +520,7 @@ html {
 }
 
 body {
+  background: url('../background.png') fixed no-repeat 0 0;
   height: 100%;
   color: #333333;
   font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -920,4 +923,11 @@ body {
   100% {
     opacity: 1;
   }
+}
+
+
+#congrats {
+  text-align: center;
+  padding: 5px;
+  border: 2px dashed #1d661d;
 }

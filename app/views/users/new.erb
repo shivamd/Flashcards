@@ -1,25 +1,33 @@
-<div class="form-style">
-<h2>Signup</h2>  
-<section>
-<ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>   
-    <% end %>
-  </ul>
-</section>
-<ul>
-<form action="/users/new" method="post">
-		<li><label for="name">Name:</label>
-		<input type="text" name="name"value="<%= @user.name %>" placeholder="John Doe"></li>
-		<li><label for="email">Email</label>
-		<input type="email" name="email" value="<%= @user.email%>" placeholder="me@example.com"> </li>
-		<li><label for="password">Password</label>
-		<input type="password" name="password" placeholder="password"></li>
-		<li><label for="confirm_password">Password Confirmation</label>
-		<input type="password" name="confirm_password" placeholder="password confirmation"></li>
+  <section class="editorWrap">
 
-		<li><input type="submit" value="Enter the world of flashcards"></li>
+    <div class="editor"><!--  animate fadeIn -->
+      <div class="menu"></div><!-- end .menu -->
+      <div class="code">
+          <form class="deck-dropdown" action="/users/new" method="post">
+          <% if @user%>
+            <% @user.errors.full_messages.each do |msg| %>
+              <p><%= msg %></p>   
+            <% end %>
+          <% end %>  
 
-</form>
-</ul>
-</div>
+          <p>Sign-up</p>
+            <p>===================================================</p>
+            
+            <p>Name:</p>
+           <input type="text" name="name" value="<%= @user.name %>" placeholder="Enter Name Here" class="start-location">
+           <p>Email:</p>
+            <input type="email" name="email" value="<%= @user.email%>" placeholder="me@example.com"> 
+            <p>Password:</p>
+            <input type="password" name="password" placeholder="password">
+            <p>Confirm Password:</p>
+            <input type="password" name="confirm_password" placeholder="password confirmation">
+            <input type="submit" value="Fill in the required info and press ENTER">
+            
+          </form>
+      </div>
+    </div>
+  </section>  
+  <p>&nbsp;</p> 
+
+
+

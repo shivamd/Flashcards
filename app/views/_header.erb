@@ -1,13 +1,17 @@
-<div class="login">
+<a href="#" class="menu-main apple-logo" style=""></a>
+  <ul class='menu-user' style="display: none;">
   <% unless current_user %>
-  <ul>
-      <li><a href="/users/new">Signup</a></li>
-      <li><a href="/users/login">Login</a></li>
-    </ul>
+  
+      <li><a href="/users/new">Signup...</a></li>
+      <li><a href="/users/login">Login...</a></li>
+    
    <% else %> 
-    <form action="/users/logout" method="post">
+    <li>
+    <form class="logout-button" action="/users/logout" method="post">
       <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="logout">
-    </form>
+      <input type="submit" value="Log Out <%= current_user.name.capitalize %>...">
+    </form></li>    
+    
   <% end %>
-</div>
+  </ul>
+</li>

@@ -1,9 +1,23 @@
-<div class="question">
-  <h1><%= @card.question %></h1>
-  <h6><%= @card.answer %></h6>
-</div>
+  <section class="editorWrap">
 
-<form action="/round/<%= @round.id %>/deck/<%= @deck.id%>/cards/<%= @card.id %>/guess" method="post">
-  <input type="text" name="submit_guess">
-  <input type="submit" value="Guess">
-</form>
+    <div class="editor"><!--  animate fadeIn -->
+      <div class="menu"></div><!-- end .menu -->
+      <div class="code">
+          <form class="deck-dropdown" action="/round/<%= @round.id %>/deck/<%= @deck.id%>/cards/<%= @card.id %>/guess" method="post">
+            <p>Question</p>
+            <p>===================================================</p>
+            <p><%= @card.question %></p>
+            <p><%= @card.answer %></p>
+            <p>Type the answer and press ENTER</p>
+            <input type="text" name="submit_guess" class="start-location"/>   
+            <input type="submit" value="Guess" style="display: none;" >
+          </form>
+      </div>
+    </div>
+  </section>  
+  <p>&nbsp;</p> 
+
+ 
+
+
+

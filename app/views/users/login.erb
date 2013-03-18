@@ -1,18 +1,29 @@
-<div class="form-style">
-<%= @error if @error %>
-<h2>Login</h2>
-<ul>
 
-<form action="/users/login" method="post">
+  <section class="editorWrap">
 
-		
-	<li><label for="email">Email:</label>
-	<input type="email" name="email" placeholder="me@example.com"></li>
-	<li><label for="password">Password:</label>
-	<input type="password" name="password"></li>
+    <div class="editor"><!--  animate fadeIn -->
+      <div class="menu"></div><!-- end .menu -->
+      <div class="code">
+          <form class="deck-dropdown" action="/users/login" method="post">
+        <% if @error %> 
+         <p><%= @error %></p>
+        <% end %>
+          <p>Login</p>
+            <p>===================================================</p>
+            
+            <p>Email:</p>
+            <input type="email" name="email" placeholder="me@example.com"></li>
+            <p>Password:</p>
+            <input type="password" name="password" placeholder="password">
+            <p>Confirm Password:</p>
+            <input type="submit" value="Fill in the required info and press ENTER">
+            
+          </form>
+      </div>
+    </div>
+  </section>  
 
-	<li><input type="submit" value="login"></li>
-	
-</form>
-</ul>
-</div>
+  <p>&nbsp;</p> 
+
+
+
