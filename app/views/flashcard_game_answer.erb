@@ -1,14 +1,35 @@
-<div class="answer">
-  <h1>You are <%= @guess ? "Correct" : "WRONG!" %></h1>
+  <section class="editorWrap">
 
-  <h2>Your answer <%= @user_guess %></h2>
-  <h1>The answer is <%= @answer %>.</h1>
-</div>
-<% if session[:cards].empty? %>
-  <p>Congrats on completing <%= @deck.name %></p>
-<% else %>
- <form action="/round/<%= @round.id%>/deck/<%= @deck.id %>/cards/<%= session[:cards].pop %>" method="get">
-  <input type="submit" value="Next">
-</form>
-<% end %>
-<a href="/results/<%= @round.id %>">End Game</a>
+    <div class="editor"><!--  animate fadeIn -->
+      <div class="menu"></div><!-- end .menu -->
+      <div class="code">
+           <% if session[:cards].empty? %>
+           <form class="deck-dropdown" action="/results/<%= @round.id %>">
+            
+            <p id="congrats">Congrats on completing <%= @deck.name %></p>
+            
+          <% else %>
+
+          <form class="deck-dropdown" action="/round/<%= @round.id%>/deck/<%= @deck.id %>/cards/<%= session[:cards].pop %>" method="get">
+            
+            <%end %>  
+
+            <p>Answer</p>
+            <p>===================================================</p>
+            <p>Your submitted answer: <%= @user_guess %></p>
+            <p>The correct answer was: <%= @answer %>.</p>
+            <p>You are <%= @guess ? "Correct" : "WRONG!" %></p>
+        
+          <p>Press ENTER to continue.</p>
+            <input type="text" name="submit_guess" class="start-location"/>   
+            <input type="submit" style="display: none;" >
+          </form>
+          
+      </div>
+    </div>
+  </section>  
+  <p>&nbsp;</p> 
+
+
+
+

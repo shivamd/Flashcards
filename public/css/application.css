@@ -1,31 +1,26 @@
+@font-face {
+  font-family: Glass;
+  src: url('../Glass_TTY_VT220.ttf') format("truetype");
+
+}
 body {
   font-family: 'Open Sans', sans-serif;
-  background: #ccc;
+  /*background: #ccc;*/
+  
 }
+
 .logo {
   
 }
-.container {
-  margin: 0px auto;
-  width: 960px;
-  position: relative;
-}
-.login {
-  position: absolute;
-  right: 0;
-  top: 0px;
-}
-.login ul {
-  display: inline-block;
-}
-.login ul li {
-  display: inherit;
-}
+
+
 .content-area {
-  border: 1px solid #eee;
+  border: none;
   min-height: 500px;
   padding: 40px;
-
+  width: 800px;
+  position: relative;
+  margin: 0 auto;
 }
 .form-style {
   min-width: 350px;
@@ -38,11 +33,33 @@ body {
   list-style: none;
   
 }
+.deck-dropdown input{
+  background: none;
+  border: none;
+  color: inherit;
+  outline: none;
+  width: 100%;
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  
+}
 .deck-dropdown {
-  display: inline-block;
-  border: 1px solid black;
-  padding: 20px;
-  margin-top: 30px;
+  /*font-family: monospace, serif;
+  _font-family: 'courier new', monospace;
+  font-size: 1em;
+  color: #7CFC00;*/
+  font-family: Glass;
+  color: green;
+  text-shadow: #5a5 0px 0px 3px;
+}
+.deck-dropdown p {
+  font-family: inherit;
+  font-size: inherit;
+  text-shadow: none;
+  font-weight: 800;
+  color: inherit;
+  margin: 0px;
 }
 .stats-list tr{
   border-bottom: 1px solid black;
@@ -59,4 +76,63 @@ body {
   border-collapse:collapse;
   border: 1px solid black;
 
+}
+.editor {
+  display: block;
+  margin: 0 auto;
+}
+.vt220 {
+  
+}
+.menu-user a{
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  color: black;
+}
+.menu-user {
+  top: 20px;
+  list-style: none;
+
+  background: #f9f7f6;
+  left: 10px;
+  position: absolute;
+  width: 181px;
+  color: #eee;
+  border: 1px solid #ccc;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-left: 0px;
+  margin: 0px;
+}
+.menu-user li {
+  padding: 0 10px 5px 20px;
+}
+.menu-user li:hover {
+  background: #2848ef;
+}
+
+.menu-user li a{
+  padding-right: 120px;
+
+}
+.menu-user li:first-child {
+  border-bottom: 1px solid #ccc;
+}
+.apple-logo {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  width: 37px;
+  height: 23px;
+}
+.apple {
+  background: url('../apple_logo.png');
+}
+.logout-button input[type='submit'] {
+  border: none;
+  font-size: 14px;
+  background: none;
+  margin-top: 5px;
+  margin-bottom: 0px;
 }
