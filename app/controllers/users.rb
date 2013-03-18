@@ -17,16 +17,20 @@ post '/users/new' do
   	erb :"users/new"
   else
     login(@user)
-    redirect('/users')
+    redirect('/rounds/new')
   end
 end
 
 get '/users' do
+  
   erb :user
 end
 
 
 get '/users/login' do 
+  if current_user
+    redirect ('/rounds/new')
+  end
   erb :"users/login"
 end
 
@@ -34,7 +38,7 @@ post '/users/login' do
   if User.authenticate(params[:email], params[:password])
     user = User.find_by_email(params[:email])
     login(user)
-    redirect ('/users')
+    redirect ('/rounds/new')
   else
     @error = "Invalid Email/Password combination."
     erb :"users/login"
