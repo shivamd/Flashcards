@@ -2,6 +2,7 @@ get '/rounds/new/?' do
   @decks = Deck.all
   @message = params[:message]
   erb :new_round
+  session[:round_id] = @round.id
 end
 
 post '/rounds' do
