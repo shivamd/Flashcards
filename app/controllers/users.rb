@@ -22,7 +22,7 @@ post '/users/new' do
 end
 
 get '/users' do
-  
+  @rounds = current_user.rounds.includes(:deck, :guesses)
   erb :user
 end
 
