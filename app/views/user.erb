@@ -1,5 +1,5 @@
 <table class="stats-list">
-<% if current_user.rounds.any? %>
+<% if @rounds.any? %>
 <caption><h2><%= current_user.name.capitalize.possessive %> games</h2></caption>
   <tr>
     <th>Num</th>
@@ -9,12 +9,11 @@
   </tr>
 
 
-<% current_user.rounds.each do |round| %>
-  <% stats = round_stats(round.id) %>
+<% @rounds.each do |round| %>
   <tr>
-    <td><a href="/results/<%= round.id %>"><%= current_user.rounds.index(round) + 1 %></a></td>
+    <td><a href="/results/<%= round.id %>"><%= @rounds.index(round) + 1 %></a></td>
     <td><%= round.deck.name %></td>
-    <td><%= percentage_correct(stats) %>%</td>
+    <td><%= percentage_correct(round.guesses) %>%</td>
     <td><%= (round.created_at).ago_in_words %></td>
   </tr>
 <% end %>

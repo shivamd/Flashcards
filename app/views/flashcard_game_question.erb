@@ -3,7 +3,7 @@
     <div class="editor"><!--  animate fadeIn -->
       <div class="menu"></div><!-- end .menu -->
       <div class="code">
-          <form class="deck-dropdown" action="/round/<%= @round.id %>/deck/<%= @deck.id%>/cards/<%= @card.id %>/guess" method="post">
+          <form class="deck-dropdown" action="/round/<%= @round.id %>/cards/<%= @card.id %>/guess" method="post">
             <p>Question</p>
             <p>===================================================</p>
             <p><%= @card.question %></p>

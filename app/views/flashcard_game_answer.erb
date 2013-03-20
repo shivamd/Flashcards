@@ -10,7 +10,7 @@
             
           <% else %>
 
-          <form class="deck-dropdown" action="/round/<%= @round.id%>/deck/<%= @deck.id %>/cards/<%= session[:cards].pop %>" method="get">
+          <form class="deck-dropdown" action="/round/<%= @round.id%>/cards/<%= session[:cards].pop %>" method="get">
             
             <%end %>  
 
