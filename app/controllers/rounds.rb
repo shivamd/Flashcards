@@ -17,25 +17,24 @@ post '/rounds' do
     session[:cards] << card.id
   end
   current_round = current_user.rounds.create(:deck_id => current_deck.id)
-  redirect to "/round/#{current_round.id}/deck/#{current_deck.id}/cards/" + Card.find_by_id(session[:cards].pop).id.to_s
+  redirect to "/round/#{current_round.id}/cards/" + Card.find_by_id(session[:cards].pop).id.to_s
 end
 
-get '/round/:round_id/deck/:deck_id/cards/:card_id' do
-
-  @deck = Deck.find(params[:deck_id])
+get '/round/:round_id/cards/:card_id' do
   @round = Round.find(params[:round_id])
   @card = Card.find_by_id(params[:card_id])
+  @deck = Deck.find(@card.deck_id)
   erb :flashcard_game_question
 end 
 
-post '/round/:round_id/deck/:deck_id/cards/:card_id/guess' do
+post '/round/:round_id/cards/:card_id/guess' do
     @card = Card.find_by_id(params[:card_id])
     @user_guess = params[:submit_guess]
     @guess = @user_guess == @card.answer
     @round = Round.find(params[:round_id])
     @card.guesses.create(correct: @guess, round_id: @round.id) 
     @answer = @card.answer
-    @deck = Deck.find(params[:deck_id])
+    @deck = Deck.find(@card.deck_id)
     
     erb :flashcard_game_answer
   
@@ -45,7 +44,7 @@ end
 get '/results/:round_id' do
   session[:card] = nil
   @round = Round.find(params[:round_id])
-  @round_stats = Guess.where("round_id = ?",@round.id)
+  @round_stats =  @round.guesses
   erb :game_stats
 end
 
